@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>此间纪念馆</title>
+	  <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	  
+	 <script>
+		 window.onload = function () {
+			var current = 0;
+			var papers = document.querySelectorAll('.paper');
+			document.querySelector('.book').addEventListener('click', function () {
+				var element = this;
+				var curentPapper = papers[current];
+				curentPapper.classList.add('current');
+				curentPapper.classList.add('flip');
+
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current) {
+						paper.classList.remove('current');
+					}
+				});
+
+				current += 1;
+			});
+		}
+
+	 </script>
+  </head>
+	
+	
+  <body>
+
+	<header>
+	  <div class="jumbotron text-center" id="headerbg">
+		<div class="col-12">
+				  <h1>XXXXXX</h1>
+				  <p >XXXXXXX</p>
+		</div>
+	   </div>
+	</header>
+	  <div class="content">
+	    <button type="button" class="btn btn-dark"><img src="images/left-arrow.png"></button>
+		  <div class="container">
+			  <div class="book">
+				  <div class="paper current">
+							<div class="page front"><label>front</label></div>
+							<div class="page back"><label>back</label></div>
+						</div>
+						<div class="paper">
+							<div class="page front"><label>1</label></div>
+							<div class="page back"><label>2</label></div>
+						</div>
+						<div class="paper">
+							<div class="page front"><label>3</label></div>
+							<div class="page back"><label>4</label></div>
+						</div>
+						<div class="paper">
+							<div class="page front"><label>5</label></div>
+							<div class="page back"><label>6</label></div>
+						</div>
+					</div>
+		  </div>
+
+		  
+		  <button type="button" class="btn btn-dark"><img src="images/right-arrow.png"></button>
+  </div>
+
+	  
+		
+
+		
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.4.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body> 
+
+</html>
