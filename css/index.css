@@ -65,18 +65,28 @@ html{
 }
 
 .content{
+	width: 100vw;
+	height: 50vw;
 	display: flex;
-	justify-content: space-around;
-	padding: 0 auto;
+	justify-content: center;
+	padding: 0 0;
 	align-content: center;
+}
+
+/*take the place*/
+.fakebook {
+    width: 30vw;
+    height: 40vw;
+    background: #FFF;
+    perspective: 10000px;
+    position: relative;
 }
 
 .book {
     width: 30vw;
     height: 40vw;
     background: #FFF;
-    margin-left: 50%;
-    perspective: 1000px;
+    perspective: 150vw;
     position: relative;
 }
 .paper {
@@ -87,7 +97,7 @@ html{
     height: 40vw;
     transform-style: preserve-3d;
     transform-origin: left center;
-    transition: all 0.5s ease-in;
+    transition: all 1s ease-in;
 }
 .paper {
     z-index: 2;
@@ -135,8 +145,22 @@ html{
 
 .btn.btn-dark{
 	height: 40vw;
-	margin-left: 5vw;
-	margin-right: 5vw;
+	width: 2vw;
+	margin: 0 0;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
+
+.btn img{
+	max-width: 2vw;
+}
+
+.page img{
+	height: 40vw;
+	width: 30vw;
+}
+
 
 
