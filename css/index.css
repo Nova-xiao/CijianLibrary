@@ -93,6 +93,8 @@ html{
     font-size: 2vw;
     color: #FFF;
     backface-visibility: hidden;
+	/* for ios and safari */
+	-webkit-backface-visibility: hidden;
 }
 .page.front {
     background: rgb(0, 177, 150);
