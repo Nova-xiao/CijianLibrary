@@ -26,14 +26,6 @@ file_cont_format = """
 					return
 				}}
 				var curentPapper = papers[current];
-				// lazyloading
-				if((current >= 1)&&(current+1 < papers.length)){{
-					// only the papers between [2, length-1] have id attribute
-					var imgsToload = papers[current+1].getElementsByTagName("img");
-					Array.from(imgsToload).forEach(function(img, index){{
-						img.setAttribute("src", img.id);
-					}})
-				}}
 
 				curentPapper.classList.add('current');
 				curentPapper.classList.add('flip');
@@ -45,6 +37,14 @@ file_cont_format = """
 				}});
 
 				current += 1;
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){{
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){{
+						img.setAttribute("src", img.id);
+					}})
+				}}
 			}});
 			 
 			document.querySelector("#left-btn").addEventListener("click", function(){{

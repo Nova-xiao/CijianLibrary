@@ -19,14 +19,6 @@
 					return
 				}
 				var curentPaper = papers[current];
-				// lazyloading
-				if((current >= 1)&&(current+1 < papers.length)){
-					// only the papers between [2, length-1] have id attribute
-					var imgsToload = papers[current+1].getElementsByTagName("img");
-					Array.from(imgsToload).forEach(function(img, index){
-						img.setAttribute("src", img.id);
-					})
-				}
 
 				curentPaper.classList.add('current');
 				curentPaper.classList.add('flip');
@@ -38,6 +30,15 @@
 				});
 
 				current += 1;
+
+				// lazyloading, but load previously
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
 			});
 			 
 			document.querySelector("#left-btn").addEventListener("click", function(){
