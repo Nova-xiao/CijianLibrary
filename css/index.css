@@ -46,16 +46,16 @@ html{
 }
 
 /*take the place*/
+/* width: Note that book pages have small overlapping parts in the middle!*/
 .fakebook {
-    width: 30vw;
+    width: 28.9vw;
     height: 40vw;
     background: #FFF;
     perspective: 2000px;
     position: relative;
 }
-
 .book {
-    width: 30vw;
+    width: 28.9vw;
     height: 40vw;
     background: #FFF;
     perspective: 2000px;
@@ -65,11 +65,16 @@ html{
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 30vw;
+    width: 28.9vw;
     height: 40vw;
     transform-style: preserve-3d;
     transform-origin: left center;
     transition: all 1s ease-in;
+}
+.page img{
+	height: 40vw;
+	width: 28.9vw;
+    object-fit: cover;
 }
 .paper {
     z-index: 2;
@@ -131,10 +136,7 @@ html{
 	max-width: 2vw;
 }
 
-.page img{
-	height: 40vw;
-	width: 30vw;
-}
+
 
 
 

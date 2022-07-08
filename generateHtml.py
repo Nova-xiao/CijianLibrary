@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*- 
-import sys 
 import os
 import pathlib
+from wsgiref.handlers import format_date_time
 
 
 file_cont_format = """
@@ -26,6 +26,15 @@ file_cont_format = """
 					return
 				}}
 				var curentPapper = papers[current];
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){{
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){{
+						img.setAttribute("src", img.id);
+					}})
+				}}
+
 				curentPapper.classList.add('current');
 				curentPapper.classList.add('flip');
 
@@ -99,50 +108,63 @@ file_cont_format = """
 
 papers_str_format = """
                 <div class="paper">
-					<div class="page front"><img src="{first}"></div>
-					<div class="page back"><img src="{second}"></div>
+					<div class="page front"><img id="{first}"></div>
+					<div class="page back"><img id="{second}"></div>
 				</div>
 
 """
 
-file_name = input("输入文件名：")
-header1_str=input("输入大标题：")
-header2_str=input("输入小标题：")
+def generateHtml(img_folder_name, file_name):
+	print("Now generating: {}".format(file_name))
+	header1_str="XXXXX"
+	header2_str="XXXXX"
 
-img_folder_name=input("输入杂志图片文件夹名：")
+	pwd_path = pathlib.Path().resolve()
+	img_folder = os.path.join(pwd_path, "images", img_folder_name)
 
-pwd_path = pathlib.Path().resolve()
-img_folder = os.path.join(pwd_path, "images", img_folder_name)
+	if not os.path.exists(img_folder):
+		print("文件夹不存在。")
+		exit(1)
 
-if not os.path.exists(img_folder):
-    print("文件夹不存在。")
-    exit(1)
+	imgs = os.listdir(img_folder)
+	for img in imgs:
+		if not (img.endswith(".jpg") or img.endswith(".png")):
+			imgs.remove(img)
+	imgs.sort()
 
-imgs = os.listdir(img_folder)
-for img in imgs:
-    if not (img.endswith(".jpg") or img.endswith(".png")):
-        imgs.remove(img)
-imgs.sort()
+	imgs_length = len(imgs)
+	papers_str = ""
 
-imgs_length = len(imgs)
-papers_str = ""
-
-for i in range(0, imgs_length, 2):
-    if (imgs_length - i )<2 :
-        front_page = os.path.join("images/", img_folder_name+"/", imgs[i])
-        this_paper = papers_str_format.format(first=front_page, second="END")
-    else:
-        front_page = os.path.join("images/", img_folder_name+"/", imgs[i])
-        back_page = os.path.join("images/", img_folder_name+"/", imgs[i+1])
-        this_paper = papers_str_format.format(first=front_page, second=back_page)
-        if i == 0:
-            this_paper = this_paper.replace("paper", "paper current")
-    print(this_paper)
-    papers_str = papers_str + this_paper
-
-
-with open(file_name, "w", encoding="utf-8") as f:
-    f.write(file_cont_format.format(big_header=header1_str, small_header=header2_str, papers=papers_str))
+	for i in range(0, imgs_length, 2):
+		if (imgs_length - i )<2 :
+			front_page = os.path.join("images/", img_folder_name+"/", imgs[i])
+			this_paper = papers_str_format.format(first=front_page, second="END")
+		else:
+			front_page = os.path.join("images/", img_folder_name+"/", imgs[i])
+			back_page = os.path.join("images/", img_folder_name+"/", imgs[i+1])
+			this_paper = papers_str_format.format(first=front_page, second=back_page)
+			if i == 0:
+				this_paper = this_paper.replace("paper", "paper current")
+		if i<4 :
+			this_paper = this_paper.replace("id", "src")
+		print(this_paper)
+		papers_str = papers_str + this_paper
 
 
+	with open(file_name, "w", encoding="utf-8") as f:
+		f.write(file_cont_format.format(big_header=header1_str, small_header=header2_str, papers=papers_str))
+
+
+def main():
+	pwd_path = pathlib.Path().resolve()
+	folders = os.listdir(os.path.join(pwd_path, "images"))
+	print(folders)
+	for folder in folders:
+		if os.path.isdir(os.path.join(pwd_path, "images/", folder)):
+			print("Entering folder: {}".format(folder))
+			generateHtml(folder, folder+".html")
+			print("Leaving folder: {}".format(folder))
+
+if __name__ == "__main__":
+	main()
 

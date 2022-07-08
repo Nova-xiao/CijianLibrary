@@ -20,10 +20,13 @@
 				}
 				var curentPaper = papers[current];
 				// lazyloading
-				var imgsToload = curentPaper.getElementsByTagName("img");
-				Array.from(imgsToload).forEach(function(img, index){
-					img.setAttribute("src", img.id);
-				})
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
 
 				curentPaper.classList.add('current');
 				curentPaper.classList.add('flip');
@@ -82,15 +85,19 @@
 		  <div class="fakebook"></div>
 		  <div class="book">
 				<div class="paper current">
-					<div class="page front"><img src="images/2017sum/2017sum_page_01.jpg"></div>
-					<div class="page back"><img src="images/2017sum/2017sum_page_02.jpg"></div>
+					<div class="page front"><img src="images/2017sum/2017sum_001.jpg"></div>
+					<div class="page back"><img src="images/2017sum/2017sum_002.jpg"></div>
 				</div>
 				<div class="paper">
-					<div class="page front"><img id="images/2017sum/2017sum_page_03.jpg"></div>
-					<div class="page back"><img id="images/2017sum/2017sum_page_04.jpg"></div>
+					<div class="page front"><img src="images/2017sum/2017sum_003.jpg"></div>
+					<div class="page back"><img src="images/2017sum/2017sum_004.jpg"></div>
+				</div>
+				<div class="paper">
+					<div class="page front"><img id="images/2017sum/2017sum_005.jpg"></div>
+					<div class="page back"><img id="images/2017sum/2017sum_006.jpg"></div>
 				</div>
 			  	<div class="paper">
-					<div class="page front"><img id="images/2017sum/2017sum_page_05.jpg"></div>
+					<div class="page front"><img id="images/2017sum/2017sum_007.jpg"></div>
 					<div class="page back">END</div>
 				</div>
 			</div>
@@ -110,7 +117,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed --> 
     <script src="js/popper.min.js"></script> 
     <script src="js/bootstrap-4.4.1.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.2/dist/lazyload.min.js"></script>
   </body> 
 
 </html>

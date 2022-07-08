@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>此间纪念馆</title>
+	  <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	  
+	 <script>
+		 window.onload = function () {
+			var current = 0;
+			var papers = document.querySelectorAll('.paper');
+			document.querySelector('#right-btn').addEventListener('click', function () {
+				if(current >= papers.length){
+					return
+				}
+				var curentPapper = papers[current];
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
+
+				curentPapper.classList.add('current');
+				curentPapper.classList.add('flip');
+
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current) {
+						paper.classList.remove('current');
+					}
+				});
+
+				current += 1;
+			});
+			 
+			document.querySelector("#left-btn").addEventListener("click", function(){
+				// current paper: current - 1
+				// the previous current paper: current - 2
+				
+				if(current <= 0){
+					return
+				}
+				current -= 1
+				papers[current].classList.remove("flip")
+				if(current <= 0){
+					return
+				}
+				papers[current - 1].classList.add("current")
+				
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current - 1) {
+						paper.classList.remove('current');
+					}
+				});
+				
+			})
+		}
+
+	 </script>
+  </head>
+	
+	
+  <body>
+
+	<header>
+	  <div class="jumbotron text-center" id="headerbg">
+		<div class="col-12">
+				  <h1>XXXXX</h1>
+				  <p>XXXXX</p>
+		</div>
+	   </div>
+	</header>
+	  
+	<div class="content">
+		<button type="button" class="btn btn-dark" id="left-btn"><img src="images/left-arrow.png"></button>
+			  
+        <div class="fakebook"></div>
+        <div class="book">
+            
+                <div class="paper current">
+					<div class="page front"><img src="images/2019fall/2019fall_001.jpg"></div>
+					<div class="page back"><img src="images/2019fall/2019fall_002.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img src="images/2019fall/2019fall_003.jpg"></div>
+					<div class="page back"><img src="images/2019fall/2019fall_004.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_005.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_006.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_007.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_008.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_009.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_010.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_011.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_012.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_013.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_014.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_015.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_016.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_017.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_018.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_019.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_020.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_021.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_022.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_023.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_024.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_025.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_026.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_027.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_028.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_029.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_030.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_031.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_032.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_033.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_034.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_035.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_036.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_037.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_038.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_039.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_040.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_041.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_042.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_043.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_044.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_045.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_046.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_047.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_048.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_049.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_050.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_051.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_052.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_053.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_054.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_055.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_056.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_057.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_058.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_059.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_060.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_061.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_062.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_063.jpg"></div>
+					<div class="page back"><img id="images/2019fall/2019fall_064.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2019fall/2019fall_065.jpg"></div>
+					<div class="page back"><img id="END"></div>
+				</div>
+
+  	
+        </div>
+			  
+		<button type="button" class="btn btn-dark" id="right-btn"><img src="images/right-arrow.png"></button>  
+    </div>
+		
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.4.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body> 
+
+</html>
