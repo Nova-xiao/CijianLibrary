@@ -120,7 +120,7 @@ if not os.path.exists(img_folder):
 
 imgs = os.listdir(img_folder)
 for img in imgs:
-    if not img.endswith(".jpg"):
+    if not (img.endswith(".jpg") or img.endswith(".png")):
         imgs.remove(img)
 imgs.sort()
 

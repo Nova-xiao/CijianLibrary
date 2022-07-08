@@ -50,7 +50,7 @@ html{
     width: 30vw;
     height: 40vw;
     background: #FFF;
-    perspective: 1000px;
+    perspective: 2000px;
     position: relative;
 }
 
@@ -58,7 +58,7 @@ html{
     width: 30vw;
     height: 40vw;
     background: #FFF;
-    perspective: 1000px;
+    perspective: 2000px;
     position: relative;
 }
 .paper {
