@@ -21,10 +21,10 @@
 				var curentPaper = papers[current];
 				// lazyloading
 				var imgsToload = curentPaper.getElementsByTagName("img");
-				imgsToload.forEach(function(img, index){
+				Array.from(imgsToload).forEach(function(img, index){
 					img.setAttribute("src", img.id);
 				})
-				
+
 				curentPaper.classList.add('current');
 				curentPaper.classList.add('flip');
 
