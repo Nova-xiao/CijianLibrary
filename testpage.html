@@ -18,9 +18,15 @@
 				if(current >= papers.length){
 					return
 				}
-				var curentPapper = papers[current];
-				curentPapper.classList.add('current');
-				curentPapper.classList.add('flip');
+				var curentPaper = papers[current];
+				// lazyloading
+				var imgsToload = curentPaper.getElementsByTagName("img");
+				imgsToload.forEach(function(img, index){
+					img.setAttribute("src", img.id);
+				})
+				
+				curentPaper.classList.add('current');
+				curentPaper.classList.add('flip');
 
 				Array.from(papers).forEach(function (paper, index) {
 					if (index !== current) {
@@ -53,9 +59,6 @@
 				
 			})
 
-			var lazyLoadInstance = new LazyLoad({
-			// Your custom settings go here
-			});
 		}
 
 	 </script>
@@ -79,15 +82,15 @@
 		  <div class="fakebook"></div>
 		  <div class="book">
 				<div class="paper current">
-					<div class="page front"><img class="lazy" src="images/2017sum/2017sum_page_01.jpg"></div>
-					<div class="page back"><img class="lazy" src="images/2017sum/2017sum_page_02.jpg"></div>
+					<div class="page front"><img src="images/2017sum/2017sum_page_01.jpg"></div>
+					<div class="page back"><img src="images/2017sum/2017sum_page_02.jpg"></div>
 				</div>
 				<div class="paper">
-					<div class="page front"><img class="lazy" src="images/2017sum/2017sum_page_03.jpg"></div>
-					<div class="page back"><img class="lazy" src="images/2017sum/2017sum_page_04.jpg"></div>
+					<div class="page front"><img id="images/2017sum/2017sum_page_03.jpg"></div>
+					<div class="page back"><img id="images/2017sum/2017sum_page_04.jpg"></div>
 				</div>
 			  	<div class="paper">
-					<div class="page front"><img class="lazy" src="images/2017sum/2017sum_page_05.jpg"></div>
+					<div class="page front"><img id="images/2017sum/2017sum_page_05.jpg"></div>
 					<div class="page back">END</div>
 				</div>
 			</div>
