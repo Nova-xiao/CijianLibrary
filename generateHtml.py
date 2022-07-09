@@ -82,6 +82,9 @@ file_cont_format = """
 				  <h1>{big_header}</h1>
 				  <p>{small_header}</p>
 		</div>
+		<a href="index.html">
+		  <button type="button" class="btn btn-secondary">返回主页</button>
+        </a>
 	   </div>
 	</header>
 	  
@@ -114,10 +117,32 @@ papers_str_format = """
 
 """
 
+# config data
+skip_folders = ["2019fall_raw"
+					# ,"2017spring"
+					# ,"2017sum"
+					# ,"2017fall"
+					# ,"2017winter"
+					# ,"2018sum"
+					# ,"2018fall"
+					# ,"2019sum"
+			]
+
+header1_list = {"2017spring":"2017春季刊", "2017sum":"2017夏季刊", "2017fall":"2017秋季刊", "2017winter":"2017冬季刊",
+				"2018sum":"2018夏季刊", "2018fall":"2018秋季刊",
+				"2019spring":"2019春季刊", "2019sum":"2019夏季刊", "2019fall":"2019秋季刊"
+	}
+
+header2_list = {"2017spring":"杂志第9期", "2017sum":"杂志第10期", "2017fall":"杂志第11期", "2017winter":"杂志第12期",
+				"2018sum":"杂志第13期", "2018fall":"杂志第14期",
+				"2019spring":"杂志第15期", "2019sum":"杂志第16期", "2019fall":"杂志第17期"
+	}
+
+
 def generateHtml(img_folder_name, file_name):
 	print("Now generating: {}".format(file_name))
-	header1_str="XXXXX"
-	header2_str="XXXXX"
+	header1_str=header1_list[img_folder_name]
+	header2_str=header2_list[img_folder_name]
 
 	pwd_path = pathlib.Path().resolve()
 	img_folder = os.path.join(pwd_path, "images", img_folder_name)
@@ -160,6 +185,8 @@ def main():
 	folders = os.listdir(os.path.join(pwd_path, "images"))
 	print(folders)
 	for folder in folders:
+		if folder in skip_folders:
+			continue
 		if os.path.isdir(os.path.join(pwd_path, "images/", folder)):
 			print("Entering folder: {}".format(folder))
 			generateHtml(folder, folder+".html")
