@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>此间纪念馆</title>
+	  <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	  
+	 <script>
+		 window.onload = function () {
+			var current = 0;
+			var papers = document.querySelectorAll('.paper');
+			document.querySelector('#right-btn').addEventListener('click', function () {
+				if(current >= papers.length){
+					return
+				}
+				var curentPapper = papers[current];
+
+				curentPapper.classList.add('current');
+				curentPapper.classList.add('flip');
+
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current) {
+						paper.classList.remove('current');
+					}
+				});
+
+				current += 1;
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
+			});
+			 
+			document.querySelector("#left-btn").addEventListener("click", function(){
+				// current paper: current - 1
+				// the previous current paper: current - 2
+				
+				if(current <= 0){
+					return
+				}
+				current -= 1
+				papers[current].classList.remove("flip")
+				if(current <= 0){
+					return
+				}
+				papers[current - 1].classList.add("current")
+				
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current - 1) {
+						paper.classList.remove('current');
+					}
+				});
+				
+			})
+		}
+
+	 </script>
+  </head>
+	
+	
+  <body>
+
+	<header>
+	  <div class="jumbotron text-center" id="headerbg">
+		<div class="col-12">
+				  <h1>2015新生特刊</h1>
+				  <p>杂志第3期</p>
+		</div>
+		<a href="index.html">
+		  <button type="button" class="btn btn-secondary">返回主页</button>
+        </a>
+	   </div>
+	</header>
+	  
+	<div class="content">
+		<button type="button" class="btn btn-dark" id="left-btn"><img src="images/left-arrow.png"></button>
+			  
+        <div class="fakebook"></div>
+        <div class="book">
+            
+                <div class="paper current">
+					<div class="page front"><img src="images/2015fallspec/2015fallspec_001.jpg"></div>
+					<div class="page back"><img src="images/2015fallspec/2015fallspec_002.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img src="images/2015fallspec/2015fallspec_003.jpg"></div>
+					<div class="page back"><img src="images/2015fallspec/2015fallspec_004.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_005.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_006.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_007.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_008.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_009.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_010.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_011.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_012.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_013.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_014.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_015.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_016.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_017.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_018.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_019.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_020.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_021.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_022.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_023.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_024.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_025.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_026.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_027.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_028.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_029.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_030.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_031.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_032.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_033.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_034.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_035.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_036.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_037.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_038.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_039.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_040.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_041.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_042.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_043.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_044.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_045.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_046.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_047.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_048.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_049.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_050.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_051.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_052.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_053.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_054.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_055.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_056.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_057.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_058.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_059.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_060.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_061.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_062.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_063.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_064.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_065.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_066.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_067.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_068.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_069.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_070.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_071.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_072.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_073.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_074.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_075.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_076.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_077.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_078.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_079.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_080.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_081.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_082.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_083.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_084.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_085.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_086.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_087.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_088.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_089.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_090.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_091.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_092.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_093.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_094.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_095.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_096.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_097.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_098.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_099.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_100.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015fallspec/2015fallspec_101.jpg"></div>
+					<div class="page back"><img id="images/2015fallspec/2015fallspec_102.jpg"></div>
+				</div>
+
+  	
+        </div>
+			  
+		<button type="button" class="btn btn-dark" id="right-btn"><img src="images/right-arrow.png"></button>  
+    </div>
+		
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.4.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body> 
+
+</html>

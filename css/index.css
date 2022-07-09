@@ -29,7 +29,6 @@
 
 body{
 	width: 100%;
-    background: #000;
 }
 
 html{
@@ -136,7 +135,14 @@ html{
 	max-width: 2vw;
 }
 
-
+.col-md-2{
+	cursor: pointer;
+    transition: all 0.6s;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+}
+.col-md-2:hover{
+	transform: scale(1.35);
+}
 
 
 

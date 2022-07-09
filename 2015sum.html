@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>此间纪念馆</title>
+	  <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	  
+	 <script>
+		 window.onload = function () {
+			var current = 0;
+			var papers = document.querySelectorAll('.paper');
+			document.querySelector('#right-btn').addEventListener('click', function () {
+				if(current >= papers.length){
+					return
+				}
+				var curentPapper = papers[current];
+
+				curentPapper.classList.add('current');
+				curentPapper.classList.add('flip');
+
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current) {
+						paper.classList.remove('current');
+					}
+				});
+
+				current += 1;
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
+			});
+			 
+			document.querySelector("#left-btn").addEventListener("click", function(){
+				// current paper: current - 1
+				// the previous current paper: current - 2
+				
+				if(current <= 0){
+					return
+				}
+				current -= 1
+				papers[current].classList.remove("flip")
+				if(current <= 0){
+					return
+				}
+				papers[current - 1].classList.add("current")
+				
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current - 1) {
+						paper.classList.remove('current');
+					}
+				});
+				
+			})
+		}
+
+	 </script>
+  </head>
+	
+	
+  <body>
+
+	<header>
+	  <div class="jumbotron text-center" id="headerbg">
+		<div class="col-12">
+				  <h1>2015夏季刊</h1>
+				  <p>杂志第4期</p>
+		</div>
+		<a href="index.html">
+		  <button type="button" class="btn btn-secondary">返回主页</button>
+        </a>
+	   </div>
+	</header>
+	  
+	<div class="content">
+		<button type="button" class="btn btn-dark" id="left-btn"><img src="images/left-arrow.png"></button>
+			  
+        <div class="fakebook"></div>
+        <div class="book">
+            
+                <div class="paper current">
+					<div class="page front"><img src="images/2015sum/2015sum_001.jpg"></div>
+					<div class="page back"><img src="images/2015sum/2015sum_002.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img src="images/2015sum/2015sum_003.jpg"></div>
+					<div class="page back"><img src="images/2015sum/2015sum_004.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_005.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_006.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_007.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_008.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_009.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_010.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_011.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_012.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_013.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_014.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_015.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_016.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_017.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_018.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_019.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_020.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_021.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_022.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_023.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_024.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_025.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_026.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_027.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_028.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_029.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_030.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_031.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_032.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_033.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_034.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_035.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_036.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_037.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_038.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_039.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_040.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_041.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_042.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_043.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_044.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_045.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_046.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_047.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_048.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_049.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_050.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_051.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_052.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_053.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_054.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_055.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_056.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_057.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_058.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_059.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_060.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_061.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_062.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_063.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_064.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_065.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_066.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_067.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_068.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_069.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_070.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_071.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_072.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_073.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_074.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_075.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_076.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_077.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_078.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_079.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_080.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_081.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_082.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_083.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_084.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_085.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_086.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_087.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_088.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_089.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_090.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_091.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_092.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_093.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_094.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_095.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_096.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_097.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_098.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_099.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_100.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_101.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_102.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_103.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_104.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_105.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_106.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015sum/2015sum_107.jpg"></div>
+					<div class="page back"><img id="images/2015sum/2015sum_108.jpg"></div>
+				</div>
+
+  	
+        </div>
+			  
+		<button type="button" class="btn btn-dark" id="right-btn"><img src="images/right-arrow.png"></button>  
+    </div>
+		
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.4.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body> 
+
+</html>

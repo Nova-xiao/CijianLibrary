@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>此间纪念馆</title>
+	  <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	  
+	 <script>
+		 window.onload = function () {
+			var current = 0;
+			var papers = document.querySelectorAll('.paper');
+			document.querySelector('#right-btn').addEventListener('click', function () {
+				if(current >= papers.length){
+					return
+				}
+				var curentPapper = papers[current];
+
+				curentPapper.classList.add('current');
+				curentPapper.classList.add('flip');
+
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current) {
+						paper.classList.remove('current');
+					}
+				});
+
+				current += 1;
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
+			});
+			 
+			document.querySelector("#left-btn").addEventListener("click", function(){
+				// current paper: current - 1
+				// the previous current paper: current - 2
+				
+				if(current <= 0){
+					return
+				}
+				current -= 1
+				papers[current].classList.remove("flip")
+				if(current <= 0){
+					return
+				}
+				papers[current - 1].classList.add("current")
+				
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current - 1) {
+						paper.classList.remove('current');
+					}
+				});
+				
+			})
+		}
+
+	 </script>
+  </head>
+	
+	
+  <body>
+
+	<header>
+	  <div class="jumbotron text-center" id="headerbg">
+		<div class="col-12">
+				  <h1>2016春季刊</h1>
+				  <p>杂志第6期</p>
+		</div>
+		<a href="index.html">
+		  <button type="button" class="btn btn-secondary">返回主页</button>
+        </a>
+	   </div>
+	</header>
+	  
+	<div class="content">
+		<button type="button" class="btn btn-dark" id="left-btn"><img src="images/left-arrow.png"></button>
+			  
+        <div class="fakebook"></div>
+        <div class="book">
+            
+                <div class="paper current">
+					<div class="page front"><img src="images/2016spring/2016spring_001.jpg"></div>
+					<div class="page back"><img src="images/2016spring/2016spring_002.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img src="images/2016spring/2016spring_003.jpg"></div>
+					<div class="page back"><img src="images/2016spring/2016spring_004.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_005.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_006.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_007.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_008.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_009.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_010.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_011.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_012.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_013.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_014.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_015.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_016.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_017.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_018.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_019.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_020.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_021.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_022.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_023.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_024.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_025.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_026.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_027.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_028.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_029.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_030.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_031.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_032.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_033.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_034.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_035.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_036.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_037.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_038.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_039.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_040.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_041.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_042.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_043.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_044.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_045.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_046.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_047.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_048.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_049.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_050.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_051.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_052.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_053.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_054.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_055.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_056.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_057.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_058.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_059.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_060.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_061.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_062.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_063.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_064.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_065.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_066.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_067.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_068.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_069.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_070.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_071.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_072.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_073.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_074.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_075.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_076.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_077.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_078.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_079.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_080.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_081.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_082.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_083.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_084.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_085.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_086.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_087.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_088.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_089.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_090.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_091.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_092.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_093.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_094.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_095.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_096.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_097.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_098.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_099.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_100.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_101.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_102.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_103.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_104.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_105.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_106.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_107.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_108.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_109.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_110.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_111.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_112.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_113.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_114.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_115.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_116.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_117.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_118.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_119.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_120.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_121.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_122.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_123.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_124.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_125.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_126.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_127.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_128.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2016spring/2016spring_129.jpg"></div>
+					<div class="page back"><img id="images/2016spring/2016spring_130.jpg"></div>
+				</div>
+
+  	
+        </div>
+			  
+		<button type="button" class="btn btn-dark" id="right-btn"><img src="images/right-arrow.png"></button>  
+    </div>
+		
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.4.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body> 
+
+</html>

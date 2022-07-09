@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>此间纪念馆</title>
+	  <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	  
+	 <script>
+		 window.onload = function () {
+			var current = 0;
+			var papers = document.querySelectorAll('.paper');
+			document.querySelector('#right-btn').addEventListener('click', function () {
+				if(current >= papers.length){
+					return
+				}
+				var curentPapper = papers[current];
+
+				curentPapper.classList.add('current');
+				curentPapper.classList.add('flip');
+
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current) {
+						paper.classList.remove('current');
+					}
+				});
+
+				current += 1;
+				// lazyloading
+				if((current >= 1)&&(current+1 < papers.length)){
+					// only the papers between [2, length-1] have id attribute
+					var imgsToload = papers[current+1].getElementsByTagName("img");
+					Array.from(imgsToload).forEach(function(img, index){
+						img.setAttribute("src", img.id);
+					})
+				}
+			});
+			 
+			document.querySelector("#left-btn").addEventListener("click", function(){
+				// current paper: current - 1
+				// the previous current paper: current - 2
+				
+				if(current <= 0){
+					return
+				}
+				current -= 1
+				papers[current].classList.remove("flip")
+				if(current <= 0){
+					return
+				}
+				papers[current - 1].classList.add("current")
+				
+				Array.from(papers).forEach(function (paper, index) {
+					if (index !== current - 1) {
+						paper.classList.remove('current');
+					}
+				});
+				
+			})
+		}
+
+	 </script>
+  </head>
+	
+	
+  <body>
+
+	<header>
+	  <div class="jumbotron text-center" id="headerbg">
+		<div class="col-12">
+				  <h1>2015冬季刊</h1>
+				  <p>杂志第5期</p>
+		</div>
+		<a href="index.html">
+		  <button type="button" class="btn btn-secondary">返回主页</button>
+        </a>
+	   </div>
+	</header>
+	  
+	<div class="content">
+		<button type="button" class="btn btn-dark" id="left-btn"><img src="images/left-arrow.png"></button>
+			  
+        <div class="fakebook"></div>
+        <div class="book">
+            
+                <div class="paper current">
+					<div class="page front"><img src="images/2015winter/2015winter_001.jpg"></div>
+					<div class="page back"><img src="images/2015winter/2015winter_002.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img src="images/2015winter/2015winter_003.jpg"></div>
+					<div class="page back"><img src="images/2015winter/2015winter_004.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_005.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_006.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_007.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_008.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_009.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_010.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_011.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_012.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_013.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_014.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_015.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_016.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_017.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_018.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_019.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_020.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_021.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_022.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_023.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_024.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_025.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_026.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_027.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_028.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_029.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_030.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_031.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_032.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_033.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_034.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_035.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_036.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_037.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_038.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_039.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_040.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_041.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_042.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_043.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_044.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_045.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_046.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_047.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_048.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_049.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_050.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_051.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_052.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_053.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_054.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_055.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_056.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_057.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_058.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_059.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_060.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_061.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_062.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_063.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_064.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_065.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_066.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_067.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_068.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_069.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_070.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_071.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_072.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_073.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_074.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_075.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_076.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_077.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_078.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_079.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_080.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_081.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_082.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_083.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_084.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_085.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_086.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_087.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_088.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_089.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_090.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_091.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_092.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_093.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_094.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_095.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_096.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_097.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_098.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_099.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_100.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_101.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_102.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_103.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_104.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_105.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_106.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_107.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_108.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_109.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_110.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_111.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_112.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_113.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_114.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_115.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_116.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_117.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_118.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_119.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_120.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_121.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_122.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_123.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_124.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_125.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_126.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_127.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_128.jpg"></div>
+				</div>
+
+
+                <div class="paper">
+					<div class="page front"><img id="images/2015winter/2015winter_129.jpg"></div>
+					<div class="page back"><img id="images/2015winter/2015winter_130.jpg"></div>
+				</div>
+
+  	
+        </div>
+			  
+		<button type="button" class="btn btn-dark" id="right-btn"><img src="images/right-arrow.png"></button>  
+    </div>
+		
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.4.1.min.js"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body> 
+
+</html>

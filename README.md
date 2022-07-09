@@ -1,4 +1,4 @@
 # CijianLibrary
 Github pages to load cijian pdfs
 
-https://nova-xiao.github.io/CijianLibrary/
+https://nova-xiao.github.io/CijianLibrary/index.html
