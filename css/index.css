@@ -37,7 +37,8 @@ html{
 
 .content{
 	width: 100%;
-	height: 400px;
+	min-width: 1000px;
+	height: 800px;
 	display: flex;
 	justify-content: center;
 	padding: 0 0;
@@ -47,15 +48,15 @@ html{
 /*take the place*/
 /* width: Note that book pages have small overlapping parts in the middle!*/
 .fakebook {
-    width: 231.2px;
-    height: 320px;
+    width: 462.4px;
+    height: 640px;
     background: #FFF;
     perspective: 2000px;
     position: relative;
 }
 .book {
-    width: 231.2px;
-    height: 320px;
+    width: 462.4px;
+    height: 640px;
     background: #FFF;
     perspective: 2000px;
     position: relative;
@@ -64,15 +65,15 @@ html{
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 231.2px;
-    height: 320px;
+    width: 462.4px;
+    height: 640px;
     transform-style: preserve-3d;
     transform-origin: left center;
     transition: all 1s ease-in;
 }
 .page img{
-	height: 320px;
-	width: 231.2px;
+	height: 640px;
+	width: 462.4px;
     object-fit: cover;
 }
 .paper {
@@ -122,8 +123,8 @@ html{
 }
 
 .btn.btn-dark{
-	height: 320px;
-	width: 16px;
+	height: 640px;
+	width: 32px;
 	margin: 0 0;
 	display: flex;
     flex-direction: row;
@@ -132,7 +133,7 @@ html{
 }
 
 .btn img{
-	max-width: 16px;
+	max-width: 32px;
 }
 
 .col-md-2{
